@@ -15,6 +15,7 @@ class SimpleDatasetLoader:
             self.preprocessors = []
 
     # Method: Used to load a list of images for pre-processing
+    # WJ: assumption: /dataset_name/class/image.jpg
     def load(self, image_paths, verbose=-1):
         """
         :param image_paths: List of image paths
