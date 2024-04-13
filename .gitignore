@@ -102,3 +102,6 @@ ENV/
 
 # JetBrains
 .idea/
+*.png
+/rearrange/output
+*.hdf5

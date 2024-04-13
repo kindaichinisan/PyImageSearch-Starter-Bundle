@@ -5,3 +5,4 @@ imutils
 matplotlib
 tensorflow
 pandas
+scikit-image

@@ -1,8 +1,13 @@
-from keras.callbacks import BaseLogger
+from tensorflow.python.keras.callbacks import BaseLogger #not able to use tensorflow.keras.callbacks
 import matplotlib.pyplot as plt
 import numpy as np
 import json
 import os
+
+# If you're unable to import BaseLogger directly from tensorflow.keras.callbacks, it's likely because it's not present in the public API of TensorFlow.
+# In TensorFlow's public API, you typically won't find BaseLogger listed as an importable callback class. Instead, it's often used internally within TensorFlow's implementation of Keras.
+# If you still need to access BaseLogger, you might need to import it from its internal module tensorflow.python.keras.callbacks. However, keep in mind that importing directly from internal modules is not recommended as they might change without notice across TensorFlow releases, leading to compatibility issues.
+# If you need a basic logger for your training process, you can use other available callbacks like History, TensorBoard, or custom callback functions. These are part of the public API and are intended for use by developers.
 
 
 class TrainingMonitor(BaseLogger):
