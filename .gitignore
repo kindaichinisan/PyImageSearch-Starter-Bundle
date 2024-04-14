@@ -105,3 +105,6 @@ ENV/
 *.png
 /rearrange/output
 *.hdf5
+*.jpg
+*.xml
+*.keras

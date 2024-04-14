@@ -1,8 +1,8 @@
 from sklearn.preprocessing import LabelBinarizer
-from utilities.nn.cnn import MiniVGGNet
-from keras.callbacks import ModelCheckpoint
-from keras.optimizers import SGD
-from keras.datasets import cifar10
+from pyimagesearch.nn.cnn import MiniVGGNet
+from tensorflow.keras.callbacks import ModelCheckpoint
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.datasets import cifar10
 import argparse
 import os
 
@@ -25,7 +25,8 @@ test_y = lb.transform(test_y)
 
 # Initialize the SGD optimizer, but without any learning rate decay
 print("[INFO]: Compiling model....")
-optimizer = SGD(lr=0.01, decay=0.01/40, momentum=0.9, nesterov=True)
+num_epochs=1 #40
+optimizer = SGD(learning_rate=0.01, decay=0.01/num_epochs, momentum=0.9, nesterov=True)
 model = MiniVGGNet.build(width=32, height=32, depth=3, classes=10)
 model.compile(loss="categorical_crossentropy", optimizer=optimizer, metrics=["accuracy"])
 
@@ -36,4 +37,4 @@ callbacks = [checkpoint]
 # Train the network
 print("[INFO]: Training network....")
 H = model.fit(train_x, train_y, validation_data=(test_x, test_y),
-              batch_size=64, epochs=40, callbacks=callbacks, verbose=2)
+              batch_size=64, epochs=num_epochs, callbacks=callbacks, verbose=2)

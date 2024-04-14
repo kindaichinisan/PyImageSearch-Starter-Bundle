@@ -44,8 +44,8 @@ model = MiniVGGNet.build(width=32, height=32, depth=3, classes=10)
 model.compile(loss="categorical_crossentropy", optimizer=optimizer, metrics=["accuracy"])
 
 # Construct the set of callbacks
-fig_path = os.path.sep.join([args["output"], "{}.png".format(os.getpid())])
-json_path = os.path.sep.join([args["output"], "{}.json".format(os.getpid())])
+fig_path = os.path.join(args["output"], "{}.png".format(os.getpid()))
+json_path = os.path.join(args["output"], "{}.json".format(os.getpid()))
 callbacks = [TrainingMonitor(fig_path, json_path)]
 
 # train the network
